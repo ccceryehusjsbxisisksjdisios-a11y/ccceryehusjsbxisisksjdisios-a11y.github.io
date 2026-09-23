@@ -16,15 +16,15 @@ body{background:radial-gradient(circle at 50% 0%,#0d0921 0%,#030207 100%);color:
 .goal-progress{background:linear-gradient(90deg,#fff,#00f5d4);height:100%;width:0%;transition:width .5s ease;box-shadow:0 0 10px #fff}
 .header-panel{background:rgba(127,90,240,0.1);border:1px solid #7f5af0;padding:15px;border-radius:20px;display:flex;flex-direction:column;gap:6px;margin-bottom:15px;width:100%;max-width:500px;text-align:center}
 .stats-row{display:flex;justify-content:space-around;font-size:14px;font-weight:800;gap:5px;flex-wrap:wrap}
-.crystals{color:#00f5d4}.bars{color:#fee440}.energy{color:#00bbf9}.streak{color:#ff0054}
+.crystals{color:#00f5d4}.bars{color:#fee440}.energy{color:#00bbf9}.streak{color:#ff0054}.lemons{color:#fbbf24}
 .passive-income{color:#00f5d4;font-size:13px;font-weight:600}
 .container{width:100%;max-width:500px;display:flex;flex-direction:column;gap:15px}
 h2{margin-bottom:8px;color:#fff;font-size:18px;font-weight:700}
 p{color:#94a3b8;font-size:13px;margin-bottom:12px;line-height:1.4}
-button{background:#7f5af0;color:#fff;border:none;height:46px;font-size:15px;font-weight:700;border-radius:12px;cursor:pointer;width:100%;box-shadow:0 4px 12px rgba(127,90,240,0.3);margin-top:6px;transition:all .2s;position:relative;overflow:hidden}
+button{background:#7f5af0;color:#fff;border:none;height:46px;font-size:15px;font-weight:700;border-radius:12px;cursor:pointer;width:100%;box-shadow:0 4px 12px rgba(127,90,240,0.3);margin-top:6px;transition:all .2s}
 button:active{transform:scale(0.97)}
 button:disabled{background:#1e1b30;color:#474360;cursor:not-allowed;box-shadow:none}
-button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,240,0.6)}
+button:hover:not(:disabled){background:#9272f2}
 .grid-box{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%}
 .grid-item{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
 .item-cost{color:#00f5d4;font-size:12px;font-weight:700}
@@ -36,9 +36,9 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 @keyframes floatUp{0%{transform:translateY(0) scale(.8);opacity:1}100%{transform:translateY(-50px) scale(1.2);opacity:0}}
 .sparkle{position:absolute;width:6px;height:6px;background:#00f5d4;border-radius:50%;pointer-events:none;animation:spark .4s ease-out forwards;z-index:999}
 @keyframes spark{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px;backdrop-filter:blur(5px)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:10000;padding:20px;backdrop-filter:blur(5px);overflow-y:auto}
 .modal.active{display:flex;animation:fadeIn .3s}
-.modal-box{background:linear-gradient(135deg,rgba(22,17,46,0.98),rgba(30,25,58,0.98));border:2px solid #7f5af0;border-radius:20px;padding:25px;max-width:400px;width:100%;text-align:center;box-shadow:0 0 60px rgba(127,90,240,0.5);animation:slideUp .5s cubic-bezier(.34,1.56,.64,1)}
+.modal-box{background:linear-gradient(135deg,rgba(22,17,46,0.98),rgba(30,25,58,0.98));border:2px solid #7f5af0;border-radius:20px;padding:25px;max-width:400px;width:100%;text-align:center;box-shadow:0 0 60px rgba(127,90,240,0.5);animation:slideUp .5s cubic-bezier(.34,1.56,.64,1);margin:auto}
 @keyframes slideUp{from{transform:translateY(100px) scale(.9);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
 .modal-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;text-shadow:0 0 15px #7f5af0}
 .modal-text{color:#cbd5e1;font-size:14px;line-height:1.6;margin-bottom:18px}
@@ -47,13 +47,11 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 .avatar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}
 .avatar-option{aspect-ratio:1;background:rgba(255,255,255,0.05);border:2px solid transparent;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;transition:all .2s}
 .avatar-option.selected{border-color:#00f5d4;background:rgba(0,245,212,0.15);box-shadow:0 0 15px rgba(0,245,212,0.5)}
-.avatar-option:active{transform:scale(0.9)}
 .profile-header{display:flex;align-items:center;gap:15px;padding:15px;background:linear-gradient(135deg,rgba(127,90,240,0.2),rgba(0,245,212,0.1));border-radius:15px;margin-bottom:12px;border:2px solid #7f5af0}
-.profile-avatar{width:70px;height:70px;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #00f5d4;box-shadow:0 0 20px rgba(0,245,212,0.5)}
+.profile-avatar{width:70px;height:70px;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #00f5d4}
 .profile-info{text-align:left;flex:1}
 .profile-nick{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
 .profile-rank{font-size:13px;font-weight:700;color:#fee440}
-.rank-badge{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:800;margin-left:6px}
 .stat-line{display:flex;justify-content:space-between;font-size:12px;color:#cbd5e1;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.05)}
 .stat-line span:last-child{color:#00f5d4;font-weight:700}
 .bj-cards{display:flex;gap:8px;justify-content:center;margin:10px 0;flex-wrap:wrap;min-height:60px}
@@ -61,24 +59,61 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 .bj-card.red{color:#dc2626}
 .bj-card.back{background:linear-gradient(135deg,#7f5af0,#00f5d4);color:#fff}
 .dice-row{display:flex;gap:15px;justify-content:center;font-size:54px;margin:15px 0}
-.dice{background:#1e1938;padding:8px 16px;border-radius:12px;border:2px solid #7f5af0;animation:slideUp .4s}
+.dice{background:#1e1938;padding:8px 16px;border-radius:12px;border:2px solid #7f5af0}
 .roulette-wheel{display:flex;justify-content:center;gap:6px;margin:12px 0;flex-wrap:wrap}
 .roulette-num{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:bold;font-size:14px}
 .rn-red{background:#dc2626}.rn-black{background:#1a1a1a;border:1px solid #444}.rn-green{background:#16a34a}
 .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7f5af0,#00f5d4);color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;z-index:10001;box-shadow:0 8px 32px rgba(0,0,0,0.4);animation:toastIn .4s}
 @keyframes toastIn{from{transform:translate(-50%,-100px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+.gift-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(255,255,255,0.05);border-radius:12px;margin-bottom:8px;border:2px solid transparent;cursor:pointer;transition:all .2s}
+.gift-item:hover{border-color:#7f5af0;background:rgba(127,90,240,0.1)}
+.gift-item:active{transform:scale(0.97)}
+.gift-item.disabled{opacity:0.4;cursor:not-allowed}
+.gift-item .gift-name{font-weight:700;font-size:15px}
+.gift-item .gift-price{color:#fbbf24;font-weight:700;font-size:13px}
 </style>
 </head>
 <body onclick="createSparkles(event)">
 
-<!-- МОДАЛЬНОЕ ОКНО ПРОФИЛЯ -->
 <div class="modal" id="profile-modal">
   <div class="modal-box">
     <div class="modal-title" id="modal-title">👤 Создай профиль</div>
-    <div class="modal-text" id="modal-text">Придумай ник и выбери аватарку</div>
+    <div class="modal-text">Придумай ник и выбери аватарку</div>
     <input class="modal-input" id="nick-input" placeholder="Твой ник..." maxlength="16">
     <div class="avatar-grid" id="avatar-grid"></div>
-    <button onclick="saveProfile()" id="profile-save-btn" style="background:linear-gradient(135deg,#00f5d4,#00bbf9);color:#000">✅ Готово</button>
+    <button onclick="saveProfile()" style="background:linear-gradient(135deg,#00f5d4,#00bbf9);color:#000">✅ Готово</button>
+  </div>
+</div>
+
+<div class="modal" id="withdraw-modal">
+  <div class="modal-box">
+    <div class="modal-title">💰 Вывод наград</div>
+    <div class="modal-text" id="withdraw-info">У тебя: 0 🍋</div>
+    <button onclick="showWithdrawList('stars')" style="background:linear-gradient(135deg,#fbbf24,#ff0054);color:#000">⭐ ЗВЁЗДЫ</button>
+    <button onclick="showWithdrawList('gifts')" style="background:linear-gradient(135deg,#a855f7,#7f5af0)">🎁 ПОДАРКИ</button>
+    <button onclick="closeWithdraw()" style="background:transparent;border:1px solid #666;color:#94a3b8;margin-top:12px">Закрыть</button>
+  </div>
+</div>
+
+<div class="modal" id="list-modal">
+  <div class="modal-box">
+    <div class="modal-title" id="list-title">Выбери награду</div>
+    <div id="list-content"></div>
+    <button onclick="closeList()" style="background:transparent;border:1px solid #666;color:#94a3b8;margin-top:12px">Назад</button>
+  </div>
+</div>
+
+<div class="modal" id="withdraw-info-modal">
+  <div class="modal-box">
+    <div class="modal-title">📩 Как получить</div>
+    <div class="modal-text">
+      1. Скинь <b>@Ward0171</b> видео, как ты приглашал друзей<br><br>
+      2. Укажи ники приглашённых<br><br>
+      3. Укажи свой ник: <b id="info-nick">Гость</b><br><br>
+      4. Выбранная награда: <b id="info-prize">—</b><br><br>
+      ⚠️ <b>Если обманешь — бан навсегда!</b>
+    </div>
+    <a href="https://t.me/Ward0171" target="_blank" style="display:block;background:linear-gradient(135deg,#24a1de,#00bbf9);color:#fff;text-decoration:none;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px">📩 Написать @Ward0171</a>
   </div>
 </div>
 
@@ -104,6 +139,10 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
     <div>🎟️: <span id="ticket-count" style="color:#ff9f1c">0</span></div>
     <div>🔱: <span id="prestige-count" class="bars">0</span></div>
   </div>
+  <div class="stats-row">
+    <div>🍋: <span id="lemon-count" class="lemons">0</span></div>
+    <div>👥: <span id="friends-count" class="lemons">0</span></div>
+  </div>
   <div class="passive-income">⚙️ Авто: +<span id="passive-rate">0</span> 💎/сек</div>
   <div id="citadel-status" style="font-size:11px;color:#94a3b8">🏰 Цитадель: Ур. 1</div>
 </div>
@@ -120,17 +159,26 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
     </div>
     <div class="stat-line"><span>💎 Всего накоплено</span><span id="stat-total">0</span></div>
     <div class="stat-line"><span>⚡ Всего кликов</span><span id="stat-clicks">0</span></div>
-    <div class="stat-line"><span>🔱 Слитков</span><span id="stat-prestige">0</span></div>
+    <div class="stat-line"><span>🍋 Лимончиков</span><span id="stat-lemons">0</span></div>
     <div style="margin-top:12px;padding:10px;background:rgba(255,159,28,0.1);border-radius:10px;font-size:12px;color:#ff9f1c;line-height:1.5">
-      ⭐ <b>200 звёзд</b> будут выданы только тому, кто набрал <b>первым</b> 10,000,000 кристаллов!<br>
-      📩 Писать сюда: <b>@Ward0171</b>
+      ⭐ <b>200 звёзд</b> только тому, кто набрал <b>первым</b> 10,000,000 💎!<br>
+      📩 Писать: <b>@Ward0171</b>
     </div>
     <button onclick="openProfileEdit()" style="margin-top:10px;height:36px;font-size:13px">✏️ Редактировать профиль</button>
   </div>
 
+  <div class="glass-card" style="border-color:#fbbf24">
+    <h2>🍋 Лимончики</h2>
+    <p>Приглашай друзей — получай 0.50 🍋 за каждого. Копи и выводи!</p>
+    <div class="stat-line"><span>🍋 Баланс</span><span id="lemon-balance">0</span></div>
+    <div class="stat-line"><span>👥 Приглашено</span><span id="friends-display">0</span></div>
+    <button onclick="inviteFriend()" style="background:linear-gradient(135deg,#fbbf24,#ff9f1c);color:#000">👥 ПРИГЛАСИТЬ ДРУГА (+0.50 🍋)</button>
+    <button onclick="openWithdraw()" id="withdraw-btn" style="background:linear-gradient(135deg,#00f5d4,#00bbf9);color:#000">💰 ВЫВЕСТИ (от 10 🍋)</button>
+    <div id="lemon-log" class="log"></div>
+  </div>
+
   <div class="glass-card" style="border-color:#00bbf9">
     <h2>🏰 Кристальная Цитадель</h2>
-    <p>Увеличивает выигрыш в мини-играх.</p>
     <div class="grid-box"><div class="grid-item">
       <div><div id="citadel-level-text" style="font-weight:700">Ур. 1</div><div class="item-cost" id="citadel-cost">Цена: 50 💎</div></div>
       <button class="mini-btn" onclick="upgradeCitadel()">Апгрейд</button>
@@ -140,7 +188,6 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 
   <div class="glass-card" style="border-color:#fee440">
     <h2>🔱 Алтарь Перерождения</h2>
-    <p>Сброс ради Слитков. +50% к авто-добыче за каждый.</p>
     <button onclick="triggerPrestige()" style="background:linear-gradient(135deg,#ff9f1c,#fee440);color:#000">Переродиться</button>
     <div id="prestige-log" class="log"></div>
   </div>
@@ -161,12 +208,11 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 
   <div class="glass-card" style="border-color:#22c55e">
     <h2>🃏 Блэкджек</h2>
-    <p>Набери 21, обыграй дилера. Победа x2, блэкджек x2.5.</p>
     <div>Ты: <span id="bj-player-score" style="color:#00f5d4;font-weight:700">0</span></div>
     <div class="bj-cards" id="bj-player-cards"></div>
     <div>Дилер: <span id="bj-dealer-score" style="color:#fbbf24;font-weight:700">0</span></div>
     <div class="bj-cards" id="bj-dealer-cards"></div>
-    <button id="bj-start" onclick="bjStart()">Начать игру (10 💎)</button>
+    <button id="bj-start" onclick="bjStart()">Начать (10 💎)</button>
     <div style="display:flex;gap:8px">
       <button id="bj-hit" onclick="bjHit()" style="display:none;background:#22c55e">Ещё</button>
       <button id="bj-stand" onclick="bjStand()" style="display:none;background:#dc2626">Хватит</button>
@@ -176,7 +222,6 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 
   <div class="glass-card" style="border-color:#7f5af0">
     <h2>🎡 Рулетка</h2>
-    <p>Ставь на цвет. Красное/чёрное x2, зелёное x14.</p>
     <div class="roulette-wheel" id="roulette-display"></div>
     <div style="display:flex;gap:6px;margin-top:10px">
       <button class="mini-btn" onclick="rouletteBet('red',10)" style="background:#dc2626;flex:1">🔴 x2</button>
@@ -188,7 +233,6 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 
   <div class="glass-card" style="border-color:#fbbf24">
     <h2>🎲 Кости</h2>
-    <p>Угадай сумму двух кубиков. Угадал — x6 ставки!</p>
     <div class="dice-row"><div class="dice" id="dice1">⚀</div><div class="dice" id="dice2">⚀</div></div>
     <div class="grid-box">
       <div class="grid-item">
@@ -206,9 +250,8 @@ button:hover:not(:disabled){background:#9272f2;box-shadow:0 0 20px rgba(127,90,2
 
   <div class="glass-card">
     <h2>💣 Минная Зона</h2>
-    <p>Рискни. Чистая клетка удваивает ставку.</p>
     <button id="start-mines-btn" onclick="startMinesGame()">Войти (2 💎)</button>
-    <div id="minefield" class="minefield" style="display:none"></div>
+    <div id="minefield" style="display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0"></div>
     <div id="mines-log" class="log"></div>
   </div>
 
@@ -247,19 +290,31 @@ const RANKS=[
   {name:'🌟 Легенда',req:10000000000,color:'#fbbf24'},
   {name:'🔱 УЛЬТРА ЛЕГЕНДА',req:100000000000,color:'#ff0054'}
 ];
-const DEFAULT_STATE={crystals:10,tickets:0,prestige:0,citadelLevel:1,drones:0,factories:0,lastWheel:0,energy:100,maxEnergy:100,streak:0,lastDaily:0,boostUntil:0,clickPower:1,slotSpins:0,wheelSpins:0,passiveBonus:0,clickBonus:0,totalClicks:0,totalEarned:0,mineGames:0,nick:'',avatar:'👤',profileCreated:false};
+const STARS_PRIZES=[
+  {emoji:'⭐',name:'15 звёзд',price:10,type:'stars',amount:15},
+  {emoji:'⭐',name:'50 звёзд',price:30,type:'stars',amount:50}
+];
+const GIFTS_PRIZES=[
+  {emoji:'🧸',name:'Мишка',price:10,type:'gift'},
+  {emoji:'🌹',name:'Роза',price:15,type:'gift'},
+  {emoji:'🎂',name:'Торт',price:20,type:'gift'},
+  {emoji:'💎',name:'Алмаз',price:30,type:'gift'},
+  {emoji:'🏆',name:'Кубок',price:50,type:'gift'},
+  {emoji:'💍',name:'Кольцо',price:100,type:'gift'}
+];
+const DEFAULT_STATE={crystals:10,tickets:0,prestige:0,citadelLevel:1,drones:0,factories:0,lastWheel:0,energy:100,maxEnergy:100,streak:0,lastDaily:0,boostUntil:0,clickPower:1,slotSpins:0,wheelSpins:0,passiveBonus:0,clickBonus:0,totalClicks:0,totalEarned:0,mineGames:0,nick:'',avatar:'👤',profileCreated:false,lemons:0,friends:0,inviteCode:'',lastInviteCheck:0};
 let state={...DEFAULT_STATE};
 let minesActive=false,minesBet=2,minesMultiplier=1,minesMines=[],minesOpened=[];
 let diceBet=10,diceGuess=7;
 let bjPlayer=[],bjDealer=[],bjPlaying=false;
 let selectedAvatar='🐻';
+let selectedPrize=null;
 const GOAL=10000000,CITADEL_BASE=50,DRONE_BASE=15,FACTORY_BASE=100,WHEEL_COOLDOWN=30000,DAY=86400000;
 
-function save(){try{localStorage.setItem('starworker_v2',JSON.stringify(state))}catch(e){}}
-function load(){try{const r=localStorage.getItem('starworker_v2');if(r)state={...DEFAULT_STATE,...JSON.parse(r)}}catch(e){}}
-function resetGame(){if(!confirm('Сбросить всё?'))return;localStorage.removeItem('starworker_v2');state={...DEFAULT_STATE};updateUI();save()}
+function save(){try{localStorage.setItem('starworker_v3',JSON.stringify(state))}catch(e){}}
+function load(){try{const r=localStorage.getItem('starworker_v3');if(r)state={...DEFAULT_STATE,...JSON.parse(r)}}catch(e){}}
+function resetGame(){if(!confirm('Сбросить всё?'))return;localStorage.removeItem('starworker_v3');state={...DEFAULT_STATE};updateUI();save()}
 function fmt(n){return Math.floor(n).toLocaleString('ru-RU')}
-
 function getRank(){const total=state.totalEarned||0;let r=RANKS[0];for(const rank of RANKS){if(total>=rank.req)r=rank}return r}
 function getCitadelCost(){return Math.floor(CITADEL_BASE*Math.pow(2.2,state.citadelLevel-1))}
 function getDroneCost(){return Math.floor(DRONE_BASE*Math.pow(1.15,state.drones))}
@@ -272,6 +327,10 @@ function updateUI(){
   document.getElementById('crystal-count').textContent=fmt(state.crystals);
   document.getElementById('ticket-count').textContent=state.tickets;
   document.getElementById('prestige-count').textContent=state.prestige;
+  document.getElementById('lemon-count').textContent=state.lemons.toFixed(2);
+  document.getElementById('friends-count').textContent=state.friends;
+  document.getElementById('lemon-balance').textContent=state.lemons.toFixed(2);
+  document.getElementById('friends-display').textContent=state.friends;
   document.getElementById('passive-rate').textContent=getPassiveRate().toFixed(1);
   document.getElementById('citadel-level-text').textContent='Ур. '+state.citadelLevel;
   document.getElementById('citadel-cost').textContent='Цена: '+fmt(getCitadelCost())+' 💎';
@@ -284,16 +343,18 @@ function updateUI(){
   document.getElementById('claim-stars-link').style.display=state.crystals>=GOAL?'block':'none';
   document.getElementById('profile-nick-display').textContent=state.nick||'Гость';
   document.getElementById('profile-avatar-display').textContent=state.avatar||'👤';
-  const r=getRank();
-  const rd=document.getElementById('profile-rank-display');
-  rd.textContent=r.name;rd.style.color=r.color;
+  const r=getRank();const rd=document.getElementById('profile-rank-display');rd.textContent=r.name;rd.style.color=r.color;
   document.getElementById('stat-total').textContent=fmt(state.totalEarned||0);
   document.getElementById('stat-clicks').textContent=fmt(state.totalClicks||0);
-  document.getElementById('stat-prestige').textContent=state.prestige;
+  document.getElementById('stat-lemons').textContent=state.lemons.toFixed(2);
+  document.getElementById('info-nick').textContent=state.nick||'Гость';
   const wb=document.getElementById('wheel-btn');const left=WHEEL_COOLDOWN-(Date.now()-state.lastWheel);
   if(left>0){wb.disabled=true;wb.textContent=`Через ${Math.ceil(left/1000)}с`}else{wb.disabled=false;wb.textContent='Крутить'}
   const db=document.getElementById('daily-btn');const ready=Date.now()-state.lastDaily>=DAY;
   db.disabled=!ready;db.textContent=ready?'Забрать':'⏳';
+  const wd=document.getElementById('withdraw-btn');
+  wd.disabled=state.lemons<10;
+  wd.textContent=state.lemons<10?`💰 Вывести (нужно 10 🍋)`:`💰 ВЫВЕСТИ (${state.lemons.toFixed(2)} 🍋)`;
 }
 
 function createSparkles(e){
@@ -321,7 +382,6 @@ setInterval(()=>{if(state.energy<state.maxEnergy)state.energy=Math.min(state.max
 function buyAsset(t){const cost=t==='drone'?getDroneCost():getFactoryCost();if(state.crystals<cost)return;state.crystals-=cost;if(t==='drone')state.drones++;else state.factories++;updateUI();save()}
 function upgradeCitadel(){const c=getCitadelCost();if(state.crystals<c)return;state.crystals-=c;state.citadelLevel++;document.getElementById('citadel-log').textContent=`✅ Ур. ${state.citadelLevel}!`;updateUI();save()}
 function triggerPrestige(){if(state.crystals<10000){document.getElementById('prestige-log').textContent='❌ Нужно 10,000 💎';return}const g=Math.floor(Math.sqrt(state.crystals/1000));if(!confirm(`Получить ${g} 🔱?`))return;state.prestige+=g;state.crystals=10;state.drones=0;state.factories=0;state.citadelLevel=1;document.getElementById('prestige-log').textContent=`🔱 +${g}!`;updateUI();save()}
-
 function claimDaily(){const now=Date.now();const passed=now-state.lastDaily;if(passed<DAY){const left=Math.ceil((DAY-passed)/3600000);document.getElementById('daily-log').textContent=`⏳ Через ${left} ч.`;return}if(passed<2*DAY)state.streak+=1;else state.streak=1;const c=100*state.streak,t=Math.min(3,state.streak);state.crystals+=c;state.tickets+=t;state.lastDaily=now;document.getElementById('daily-log').textContent=`🎁 +${c} 💎 +${t} 🎟️`;updateUI();save()}
 
 function startMinesGame(){
@@ -329,14 +389,14 @@ function startMinesGame(){
   state.crystals-=2;minesActive=true;minesBet=2;minesMultiplier=1;state.mineGames=(state.mineGames||0)+1;
   minesMines=[Math.floor(Math.random()*9)];minesOpened=[];
   const mf=document.getElementById('minefield');mf.style.display='grid';mf.innerHTML='';
-  for(let i=0;i<9;i++){const c=document.createElement('div');c.className='cell';c.onclick=()=>clickCell(i);mf.appendChild(c)}
+  for(let i=0;i<9;i++){const c=document.createElement('div');c.style.cssText='aspect-ratio:1;background:#1e1938;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer';c.onclick=()=>clickCell(i);mf.appendChild(c)}
   document.getElementById('start-mines-btn').disabled=true;
-  document.getElementById('mines-log').textContent='Ставка: 2 💎 | Ищи 💎, избегай 💥';
+  document.getElementById('mines-log').textContent='Ставка: 2 💎';
   updateUI();save();
 }
 function clickCell(i){
   if(!minesActive||minesOpened.includes(i))return;
-  const cell=document.querySelectorAll('#minefield .cell')[i];
+  const cell=document.querySelectorAll('#minefield > div')[i];
   if(minesMines.includes(i)){cell.textContent='💥';cell.style.background='#5a1030';minesActive=false;document.getElementById('start-mines-btn').disabled=false;document.getElementById('mines-log').textContent=`💥 Бомба! -${minesBet} 💎`;updateUI();save();return}
   minesOpened.push(i);cell.textContent='💎';cell.style.background='#0d3a30';minesMultiplier*=1.5*getCitadelBonus();
   const p=Math.floor(minesBet*minesMultiplier);
@@ -365,31 +425,70 @@ function spinWheel(){
   updateUI();save();
 }
 
-// БЛЭКДЖЕК
 function bjCard(){const r=['2','3','4','5','6','7','8','9','10','J','Q','K','A'];const s=['♠','♥','♦','♣'];const rank=r[Math.floor(Math.random()*r.length)];const suit=s[Math.floor(Math.random()*s.length)];let val=parseInt(rank);if(isNaN(val))val=rank==='A'?11:10;return{rank,suit,val,red:suit==='♥'||suit==='♦'}}
 function bjScore(h){let sum=0,a=0;h.forEach(c=>{sum+=c.val;if(c.rank==='A')a++});while(sum>21&&a>0){sum-=10;a--}return sum}
 function bjRender(){document.getElementById('bj-player-cards').innerHTML=bjPlayer.map(c=>`<div class="bj-card ${c.red?'red':''}">${c.rank}${c.suit}</div>`).join('');document.getElementById('bj-dealer-cards').innerHTML=bjDealer.map((c,i)=>bjPlaying&&i===1?`<div class="bj-card back">?</div>`:`<div class="bj-card ${c.red?'red':''}">${c.rank}${c.suit}</div>`).join('');document.getElementById('bj-player-score').textContent=bjScore(bjPlayer);document.getElementById('bj-dealer-score').textContent=bjPlaying?'?':bjScore(bjDealer)}
 function bjStart(){if(state.crystals<10){document.getElementById('bj-log').textContent='❌ Нужно 10 💎';return}state.crystals-=10;bjPlayer=[bjCard(),bjCard()];bjDealer=[bjCard(),bjCard()];bjPlaying=true;document.getElementById('bj-start').style.display='none';document.getElementById('bj-hit').style.display='block';document.getElementById('bj-stand').style.display='block';document.getElementById('bj-log').textContent='Ставка 10 💎';bjRender();updateUI();save()}
 function bjHit(){if(!bjPlaying)return;bjPlayer.push(bjCard());bjRender();if(bjScore(bjPlayer)>21){document.getElementById('bj-log').textContent='💥 Перебор! -10 💎';bjEnd()}}
-function bjStand(){if(!bjPlaying)return;while(bjScore(bjDealer)<17)bjDealer.push(bjCard());const ps=bjScore(bjPlayer),ds=bjScore(bjDealer);let log='';if(ds>21||ps>ds){const w=Math.floor(20*getCitadelBonus());state.crystals+=w;log=`🎉 Победа! +${w} 💎`}else if(ps===ds){state.crystals+=10;log='🤝 Ничья'}else log=`😢 Дилер ${ds} vs ты ${ps}. -10 💎`;document.getElementById('bj-log').textContent=log;bjEnd()}
+function bjStand(){if(!bjPlaying)return;while(bjScore(bjDealer)<17)bjDealer.push(bjCard());const ps=bjScore(bjPlayer),ds=bjScore(bjDealer);let log='';if(ds>21||ps>ds){const w=Math.floor(20*getCitadelBonus());state.crystals+=w;log=`🎉 Победа! +${w} 💎`;toast('🎉 +'+w+' 💎')}else if(ps===ds){state.crystals+=10;log='🤝 Ничья'}else log=`😢 Дилер ${ds} vs ты ${ps}. -10 💎`;document.getElementById('bj-log').textContent=log;bjEnd()}
 function bjEnd(){bjPlaying=false;document.getElementById('bj-start').style.display='block';document.getElementById('bj-hit').style.display='none';document.getElementById('bj-stand').style.display='none';bjRender();updateUI();save()}
 
-// РУЛЕТКА
 function renderRoulette(){const nums=[0,32,15,19,4,21,2,25,17,34,6,27];const reds=[1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];document.getElementById('roulette-display').innerHTML=nums.map(n=>{const cls=n===0?'rn-green':(reds.includes(n)?'rn-red':'rn-black');return`<div class="roulette-num ${cls}">${n}</div>`}).join('')}
 function rouletteBet(color,bet){if(state.crystals<bet){document.getElementById('roulette-log').textContent='❌ Мало 💎';return}state.crystals-=bet;const n=Math.floor(Math.random()*37);const reds=[1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36];const landed=n===0?'green':(reds.includes(n)?'red':'black');let log=`🎡 Выпало: ${n} (${landed})`;if(landed===color){const mult=color==='green'?14:2;const prize=Math.floor(bet*mult*getCitadelBonus());state.crystals+=prize;log+=` — Победа! +${prize} 💎`;toast('🎉 +'+prize+' 💎')}else log+=` — увы, -${bet} 💎`;document.getElementById('roulette-log').textContent=log;updateUI();save()}
 
-// КОСТИ
 function diceSetBet(d){diceBet=Math.max(1,diceBet+d);document.getElementById('dice-bet-display').textContent=diceBet}
 function diceSetGuess(d){diceGuess=Math.min(12,Math.max(2,diceGuess+d));document.getElementById('dice-guess').textContent=diceGuess}
 function playDice(){if(state.crystals<diceBet){document.getElementById('dice-log').textContent='❌ Мало 💎';return}state.crystals-=diceBet;const d1=1+Math.floor(Math.random()*6),d2=1+Math.floor(Math.random()*6);const sum=d1+d2;const faces=['⚀','⚁','⚂','⚃','⚄','⚅'];document.getElementById('dice1').textContent=faces[d1-1];document.getElementById('dice2').textContent=faces[d2-1];if(sum===diceGuess){const prize=Math.floor(diceBet*6*getCitadelBonus());state.crystals+=prize;document.getElementById('dice-log').textContent=`🎉 ${sum}! +${prize} 💎`;toast('🎉 +'+prize+' 💎')}else document.getElementById('dice-log').textContent=`😢 ${sum} (нужно ${diceGuess}). -${diceBet}`;updateUI();save()}
 
-// ПРОФИЛЬ
 function openProfileModal(){const grid=document.getElementById('avatar-grid');grid.innerHTML=AVATARS.map(a=>`<div class="avatar-option ${a===selectedAvatar?'selected':''}" onclick="selectAvatar('${a}')">${a}</div>`).join('');document.getElementById('nick-input').value=state.nick||'';document.getElementById('profile-modal').classList.add('active')}
 function selectAvatar(a){selectedAvatar=a;document.querySelectorAll('.avatar-option').forEach(el=>el.classList.toggle('selected',el.textContent===a))}
-function saveProfile(){const nick=document.getElementById('nick-input').value.trim();if(!nick){toast('❌ Введи ник');return}state.nick=nick.slice(0,16);state.avatar=selectedAvatar;state.profileCreated=true;document.getElementById('profile-modal').classList.remove('active');toast('✅ Профиль сохранён!');updateUI();save()}
+function saveProfile(){const nick=document.getElementById('nick-input').value.trim();if(!nick){toast('❌ Введи ник');return}state.nick=nick.slice(0,16);state.avatar=selectedAvatar;state.profileCreated=true;if(!state.inviteCode)state.inviteCode=Math.random().toString(36).substring(2,8).toUpperCase();document.getElementById('profile-modal').classList.remove('active');toast('✅ Профиль сохранён!');updateUI();save()}
 function openProfileEdit(){selectedAvatar=state.avatar||'🐻';openProfileModal()}
 
-// ИНИЦИАЛИЗАЦИЯ
+function inviteFriend(){
+  if(!state.inviteCode)state.inviteCode=Math.random().toString(36).substring(2,8).toUpperCase();
+  const link=`${location.origin}${location.pathname}?ref=${state.inviteCode}`;
+  navigator.clipboard.writeText(link).then(()=>{toast('✅ Ссылка скопирована!');document.getElementById('lemon-log').textContent='🔗 Кидай другу: '+link}).catch(()=>{document.getElementById('lemon-log').textContent='🔗 Твоя ссылка: '+link});
+  // Симуляция приглашения (в реальной жизни — через сервер)
+  if(confirm('Ты реально пригласил друга по ссылке?')){
+    state.friends++;state.lemons+=0.5;
+    document.getElementById('lemon-log').textContent=`✅ +0.50 🍋! Всего друзей: ${state.friends}`;
+    toast('+0.50 🍋');updateUI();save();
+  }
+}
+function openWithdraw(){
+  if(state.lemons<10){toast('❌ Нужно минимум 10 🍋');return}
+  document.getElementById('withdraw-info').textContent=`У тебя: ${state.lemons.toFixed(2)} 🍋`;
+  document.getElementById('withdraw-modal').classList.add('active');
+}
+function closeWithdraw(){document.getElementById('withdraw-modal').classList.remove('active')}
+function showWithdrawList(type){
+  closeWithdraw();
+  document.getElementById('list-title').textContent=type==='stars'?'⭐ Звёзды':'🎁 Подарки';
+  const list=type==='stars'?STARS_PRIZES:GIFTS_PRIZES;
+  document.getElementById('list-content').innerHTML=list.map((p,i)=>{
+    const can=state.lemons>=p.price;
+    return `<div class="gift-item ${can?'':'disabled'}" onclick="${can?`choosePrize(${i},'${type}')`:''}">
+      <span class="gift-name">${p.emoji} ${p.name}</span>
+      <span class="gift-price">${p.price} 🍋</span>
+    </div>`;
+  }).join('');
+  document.getElementById('list-modal').classList.add('active');
+}
+function closeList(){document.getElementById('list-modal').classList.remove('active')}
+function choosePrize(i,type){
+  const list=type==='stars'?STARS_PRIZES:GIFTS_PRIZES;
+  const p=list[i];
+  if(state.lemons<p.price){toast('❌ Мало 🍋');return}
+  state.lemons-=p.price;
+  selectedPrize=p;
+  closeList();
+  document.getElementById('info-prize').textContent=`${p.emoji} ${p.name}`;
+  document.getElementById('withdraw-info-modal').classList.add('active');
+  toast(`✅ Списано ${p.price} 🍋`);
+  updateUI();save();
+}
+
 load();
 renderRoulette();
 updateUI();
@@ -399,4 +498,4 @@ setInterval(save,5000);
 setInterval(updateUI,1000);
 </script>
 </body>
-                                   </html>
+  </html>
