@@ -853,4 +853,70 @@ setInterval(()=>{const r=getPassiveRate();if(r>0){state.crystals+=r/10;state.tot
 setInterval(save,5000);
 </script>
 </body>
-  </html> 
+  </html> <script type="module">
+// ===== FIREBASE =====
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getFirestore, doc, setDoc, deleteDoc, collection, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBL8ts0hYQZkWv0G2LADmTQUxU1SoG4jfo",
+  authDomain: "starworker-tycoon.firebaseapp.com",
+  projectId: "starworker-tycoon",
+  storageBucket: "starworker-tycoon.firebasestorage.app",
+  messagingSenderId: "687752969270",
+  appId: "1:687752969270:web:86a022675d2041b266ac97",
+  measurementId: "G-P8MKVZ7C8V"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const SESSION_ID = 'user_' + Math.random().toString(36).substring(2, 10);
+
+async function goOnline() {
+  const nick = window.state?.nick || 'Гость';
+  try {
+    await setDoc(doc(db, 'online', SESSION_ID), {
+      nick: nick,
+      joinedAt: serverTimestamp()
+    });
+    console.log('✅ Онлайн записан');
+  } catch (e) {
+    console.error('❌ Ошибка онлайна:', e);
+  }
+}
+
+async function goOffline() {
+  try {
+    await deleteDoc(doc(db, 'online', SESSION_ID));
+    console.log('👋 Вышел');
+  } catch (e) {}
+}
+
+function watchOnline() {
+  const onlineRef = collection(db, 'online');
+  onSnapshot(onlineRef, (snapshot) => {
+    const count = snapshot.size;
+    const el = document.getElementById('online-count');
+    if (el) el.textContent = count;
+    console.log('👥 Онлайн:', count);
+  }, (error) => {
+    console.error('Ошибка:', error);
+  });
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    goOnline();
+    watchOnline();
+  }, 1500);
+});
+
+window.addEventListener('beforeunload', () => {
+  goOffline();
+});
+
+setInterval(goOnline, 30000);
+</script>
+</body>
+</html>
